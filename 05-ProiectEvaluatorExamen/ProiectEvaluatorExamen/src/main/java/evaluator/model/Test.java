@@ -18,4 +18,16 @@ public class Test  {
 	public void setIntrebari(List<Intrebare> intrebari) {
 		this.intrebari = intrebari;
 	}
+
+    @Override
+    public String toString()
+    {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Intrebare intrebare : this.intrebari)
+        {
+            stringBuilder.append(intrebare);
+            stringBuilder.append("\n");
+        }
+        return stringBuilder.toString();
+    }
 }

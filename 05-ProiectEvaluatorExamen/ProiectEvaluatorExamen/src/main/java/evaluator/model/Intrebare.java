@@ -1,31 +1,21 @@
 package evaluator.model;
 
-import evaluator.util.InputValidation;
-import evaluator.exception.InputValidationFailedException;
+import java.util.List;
 
 public class Intrebare {
 	
 	private String enunt;
-	private String varianta1;
-	private String varianta2;
-	private String variantaCorecta;
+	private List<String> varianteRaspuns;
+	private int variantaCorecta;
 	private String domeniu;
 	
 	public Intrebare() {
 	}
 	
-	public Intrebare(String enunt, String varianta1, String varianta2,
-			String variantaCorecta, String domeniu) throws InputValidationFailedException {
-		
-		InputValidation.validateEnunt(enunt);
-		InputValidation.validateVarianta1(varianta1);
-		InputValidation.validateVarianta2(varianta2);
-		InputValidation.validateVariantaCorecta(variantaCorecta);
-		InputValidation.validateDomeniu(domeniu);
-		
+	public Intrebare(String enunt, List<String> varianteRaspuns,
+					 int variantaCorecta, String domeniu) {
 		this.enunt = enunt;
-		this.varianta1 = varianta1;
-		this.varianta2 = varianta2;
+		this.varianteRaspuns = varianteRaspuns;
 		this.variantaCorecta = variantaCorecta;
 		this.domeniu = domeniu;
 	}
@@ -34,30 +24,33 @@ public class Intrebare {
 	public String getEnunt() {
 		return enunt;
 	}
-	public void setEnunt(String enunt) {
+
+	public void setEnunt(String enunt)
+    {
 		this.enunt = enunt;
 	}
-	public String getVarianta1() {
-		return varianta1;
+
+	public List<String> getVariante() {
+	    return this.varianteRaspuns;
 	}
-	public void setVarianta1(String varianta1) {
-		this.varianta1 = varianta1;
+
+	public List<String> setVarianteRaspuns(List<String> varianteRaspuns)
+    {
+	    return this.varianteRaspuns =  varianteRaspuns;
 	}
-	public String getVarianta2() {
-		return varianta2;
-	}
-	public void setVarianta2(String varianta2) {
-		this.varianta2 = varianta2;
-	}
-	public String getVariantaCorecta() {
+
+	public int getVariantaCorecta() {
 		return variantaCorecta;
 	}
-	public void setVariantaCorecta(String variantaCorecta) {
+
+	public void setVariantaCorecta(int variantaCorecta) {
 		this.variantaCorecta = variantaCorecta;
 	}
+
 	public String getDomeniu() {
 		return domeniu;
 	}
+
 	public void setDomeniu(String domeniu) {
 		this.domeniu = domeniu;
 	}
@@ -67,13 +60,29 @@ public class Intrebare {
 		if(obj instanceof Intrebare){
 			Intrebare i = (Intrebare) obj;
 			if(this.enunt.equals(i.getEnunt()) &&
-			   this.varianta1.equals(i.getVarianta1()) &&
-			   this.varianta2.equals(i.getVarianta2()) &&
-			   this.variantaCorecta.equals(i.getVariantaCorecta()) &&
+			   this.varianteRaspuns.equals(i.getVariante()) &&
+			   this.variantaCorecta == i.getVariantaCorecta() &&
 			   this.domeniu.equals(i.getDomeniu()))
 				return true;
 		}
 		return false;
 	}
 
+	@Override
+	public String toString()
+	{
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append(enunt);
+		stringBuilder.append("\n");
+		stringBuilder.append(domeniu);
+		stringBuilder.append("\n");
+		for (String variantaRaspuns: this.varianteRaspuns)
+		{
+			stringBuilder.append(variantaRaspuns);
+			stringBuilder.append("\n");
+		}
+		stringBuilder.append(variantaCorecta);
+		stringBuilder.append("\n");
+		return stringBuilder.toString();
+	}
 }

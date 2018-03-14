@@ -15,14 +15,13 @@ public class AppController {
 	
 	private IntrebariRepository intrebariRepository;
 	
-	public AppController() {
-		intrebariRepository = new IntrebariRepository();
+	public AppController(String fileName) {
+		intrebariRepository = new IntrebariRepository(fileName);
 	}
 	
 	public Intrebare addNewIntrebare(Intrebare intrebare) throws DuplicateIntrebareException{
 		
 		intrebariRepository.addIntrebare(intrebare);
-		
 		return intrebare;
 	}
 	
@@ -32,10 +31,10 @@ public class AppController {
 	
 	public Test createNewTest() throws NotAbleToCreateTestException{
 		
-		if(intrebariRepository.getIntrebari().size() < 3)
+		if(intrebariRepository.getIntrebari().size() < 5)
 			throw new NotAbleToCreateTestException("Nu exista suficiente intrebari pentru crearea unui test!(5)");
 		
-		if(intrebariRepository.getNumberOfDistinctDomains() < 4)
+		if(intrebariRepository.getNumberOfDistinctDomains() < 5)
 			throw new NotAbleToCreateTestException("Nu exista suficiente domenii pentru crearea unui test!(5)");
 		
 		List<Intrebare> testIntrebari = new LinkedList<Intrebare>();
@@ -43,10 +42,10 @@ public class AppController {
 		Intrebare intrebare;
 		Test test = new Test();
 		
-		while(testIntrebari.size() != 7){
+		while(testIntrebari.size() != 5){
 			intrebare = intrebariRepository.pickRandomIntrebare();
 			
-			if(testIntrebari.contains(intrebare) && !domenii.contains(intrebare.getDomeniu())){
+			if(!domenii.contains(intrebare.getDomeniu())){
 				testIntrebari.add(intrebare);
 				domenii.add(intrebare.getDomeniu());
 			}
@@ -59,7 +58,7 @@ public class AppController {
 	}
 	
 	public void loadIntrebariFromFile(String f){
-		intrebariRepository.setIntrebari(intrebariRepository.loadIntrebariFromFile(f));
+		intrebariRepository.setIntrebari(intrebariRepository.loadIntrebariFromFile());
 	}
 	
 	public Statistica getStatistica() throws NotAbleToCreateStatisticsException{
@@ -69,7 +68,7 @@ public class AppController {
 		
 		Statistica statistica = new Statistica();
 		for(String domeniu : intrebariRepository.getDistinctDomains()){
-			statistica.add(domeniu, intrebariRepository.getIntrebari().size());
+			statistica.add(domeniu, intrebariRepository.getNumberOfIntrebariByDomain(domeniu));
 		}
 		
 		return statistica;

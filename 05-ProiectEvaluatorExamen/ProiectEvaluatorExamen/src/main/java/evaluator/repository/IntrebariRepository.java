@@ -1,6 +1,7 @@
 package evaluator.repository;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -14,17 +15,20 @@ import evaluator.model.Intrebare;
 import evaluator.exception.DuplicateIntrebareException;
 
 public class IntrebariRepository {
-	
+
+    private String fileName;
 	private List<Intrebare> intrebari;
 	
-	public IntrebariRepository() {
+	public IntrebariRepository(String fileName) {
 		setIntrebari(new LinkedList<Intrebare>());
+		this.fileName = fileName;
 	}
 	
-	public void addIntrebare(Intrebare i) throws DuplicateIntrebareException{
-		if(exists(i))
+	public void addIntrebare(Intrebare intrebare) throws DuplicateIntrebareException{
+		if(exists(intrebare))
 			throw new DuplicateIntrebareException("Intrebarea deja exista!");
-		intrebari.add(i);
+		intrebari.add(intrebare);
+		appendQuestionToFile(fileName, intrebare);
 	}
 	
 	public boolean exists(Intrebare i){
@@ -33,6 +37,11 @@ public class IntrebariRepository {
 				return true;
 		return false;
 	}
+
+    private void appendQuestionToFile(String f, Intrebare intrebare)
+    {
+        // TODO: implement append question to file
+    }
 	
 	public Intrebare pickRandomIntrebare(){
 		Random random = new Random();
@@ -66,16 +75,16 @@ public class IntrebariRepository {
 		return getIntrebariByDomain(domain).size();
 	}
 	
-	public List<Intrebare> loadIntrebariFromFile(String f){
+	public List<Intrebare> loadIntrebariFromFile(){
 		
 		List<Intrebare> intrebari = new LinkedList<Intrebare>();
 		BufferedReader br = null; 
 		String line = null;
 		List<String> intrebareAux;
 		Intrebare intrebare;
-		
+
 		try{
-			br = new BufferedReader(new FileReader(f));
+			br = new BufferedReader(new FileReader(fileName));
 			line = br.readLine();
 			while(line != null){
 				intrebareAux = new LinkedList<String>();
@@ -85,21 +94,26 @@ public class IntrebariRepository {
 				}
 				intrebare = new Intrebare();
 				intrebare.setEnunt(intrebareAux.get(0));
-				intrebare.setVarianta1(intrebareAux.get(1));
-				intrebare.setVarianta2(intrebareAux.get(2));
-				intrebare.setVariantaCorecta(intrebareAux.get(4));
+				List<String> varianteRaspuns = new LinkedList<>();
+				varianteRaspuns.add(intrebareAux.get(1));
+				varianteRaspuns.add(intrebareAux.get(2));
+				varianteRaspuns.add(intrebareAux.get(3));
+				intrebare.setVarianteRaspuns(varianteRaspuns);
+				intrebare.setVariantaCorecta(Integer.parseInt(intrebareAux.get(4)));
 				intrebare.setDomeniu(intrebareAux.get(5));
 				intrebari.add(intrebare);
 				line = br.readLine();
 			}
-		
+
 		}
 		catch (IOException e) {
 			// TODO: handle exception
 		}
 		finally{
 			try {
-				br.close();
+			    if (br != null) {
+                    br.close();
+                }
 			} catch (IOException e) {
 				// TODO: handle exception
 			}
