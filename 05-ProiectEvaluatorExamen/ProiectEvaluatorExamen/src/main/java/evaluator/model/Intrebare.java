@@ -63,7 +63,7 @@ public class Intrebare {
 			   this.varianteRaspuns.equals(i.getVariante()) &&
 			   this.variantaCorecta == i.getVariantaCorecta() &&
 			   this.domeniu.equals(i.getDomeniu()))
-				return true;
+			    return true;
 		}
 		return false;
 	}
