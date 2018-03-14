@@ -81,6 +81,7 @@ public class StartApp {
 		{
 			Intrebare intrebare = readNewQuestion(appController, console);
 			appController.addNewIntrebare(intrebare);
+			System.out.println(intrebare);
 		} catch (DuplicateIntrebareException e)
 		{
 			e.printStackTrace();
