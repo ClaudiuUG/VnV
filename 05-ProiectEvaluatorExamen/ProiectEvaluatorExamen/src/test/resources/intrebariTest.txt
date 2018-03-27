@@ -1,0 +1,35 @@
+Cat face 2+2 ?
+1) 5
+2) 4
+3) 42
+3
+Matematica speciala
+##
+In ce an a fost inventata calatoria in timp ?
+1) 2997
+2) 312 B.C.
+3) 3045
+2
+Istorie
+##
+Ce comanda linux este folosita pentru cautare ?
+1) grep
+2) pleaseSearch
+3) kill -9
+2
+Sisteme de operare
+##
+De cati nemti este nevoie pentru a schimba un bec ?
+1) Doar unul. Nemtii nu au umor si sunt eficienti
+2) De doi si o lada de bere
+3) Nemtii nu schimba becuri
+1
+Inginerie
+##
+Cine va fi presedintele Rusiei dupa Putin ?
+1) Putin
+2) Tot Putin
+3) Cu siguranta tot Putin
+1
+Politica totalitara.
+##
