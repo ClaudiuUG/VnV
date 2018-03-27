@@ -30,7 +30,7 @@ public class Intrebare {
 		this.enunt = enunt;
 	}
 
-	public List<String> getVariante() {
+	public List<String> getVarianteRaspuns() {
 	    return this.varianteRaspuns;
 	}
 
@@ -60,7 +60,7 @@ public class Intrebare {
 		if(obj instanceof Intrebare){
 			Intrebare i = (Intrebare) obj;
 			if(this.enunt.equals(i.getEnunt()) &&
-			   this.varianteRaspuns.equals(i.getVariante()) &&
+			   this.varianteRaspuns.equals(i.getVarianteRaspuns()) &&
 			   this.variantaCorecta == i.getVariantaCorecta() &&
 			   this.domeniu.equals(i.getDomeniu()))
 			    return true;

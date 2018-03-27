@@ -11,8 +11,10 @@ import java.util.Set;
 import java.util.TreeSet;
 
 
+import evaluator.exception.InputValidationFailedException;
 import evaluator.model.Intrebare;
 import evaluator.exception.DuplicateIntrebareException;
+import evaluator.util.InputValidation;
 
 public class IntrebariRepository {
 
@@ -24,9 +26,13 @@ public class IntrebariRepository {
 		this.fileName = fileName;
 	}
 	
-	public void addIntrebare(Intrebare intrebare) throws DuplicateIntrebareException{
+	public void addIntrebare(Intrebare intrebare) throws DuplicateIntrebareException, InputValidationFailedException
+	{
 		if(exists(intrebare))
 			throw new DuplicateIntrebareException("Intrebarea deja exista!");
+		// Really don't like the validator here, but the assignment says to check a repository method
+        // and it assumes that the validation is done here
+		InputValidation.validateQuestion(intrebare);
 		intrebari.add(intrebare);
 		appendQuestionToFile(fileName, intrebare);
 	}
@@ -42,7 +48,12 @@ public class IntrebariRepository {
     {
         // TODO: implement append question to file
     }
-	
+
+    private void OverwriteFileWithCurrentQuestions()
+    {
+        // TODO: implement
+    }
+
 	public Intrebare pickRandomIntrebare(){
 		Random random = new Random();
 		return intrebari.get(random.nextInt(intrebari.size()));
@@ -129,5 +140,10 @@ public class IntrebariRepository {
 	public void setIntrebari(List<Intrebare> intrebari) {
 		this.intrebari = intrebari;
 	}
-	
+
+    public void removeAll()
+    {
+        intrebari.removeAll(intrebari);
+        this.OverwriteFileWithCurrentQuestions();
+    }
 }

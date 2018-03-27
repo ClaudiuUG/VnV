@@ -2,6 +2,7 @@ package evaluator.util;
 
 
 import evaluator.exception.InputValidationFailedException;
+import evaluator.model.Intrebare;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class InputValidation {
 			throw new InputValidationFailedException("Prima litera din enunt nu e majuscula!");
 		if(!String.valueOf(enunt.charAt(enunt.length()-1)).equals("?"))
 			throw new InputValidationFailedException("Ultimul caracter din enunt nu e '?'!");
-		if(enunt.length() > 100)
+		if(enunt.length() > 1000)
 			throw new InputValidationFailedException("Lungimea enuntului depaseste 100 de caractere!");
 		
 	}
@@ -39,11 +40,13 @@ public class InputValidation {
 		varianta = varianta.trim();
 		
 		if(varianta.equals(""))
-			throw new InputValidationFailedException("Varianta1 este vida!");
+			throw new InputValidationFailedException("Varianta " + numarVarianta + " este vida!");
+		if(varianta.length() < 3)
+		    throw new InputValidationFailedException("Varianta " + numarVarianta + "are lungimea mai mica decat 3");
 		if(!String.valueOf(varianta.charAt(0)).equals(numarVarianta.toString()) || !String.valueOf(varianta.charAt(1)).equals(")"))
-			throw new InputValidationFailedException("Varianta1 nu incepe cu '" + numarVarianta + ")'!");
-		if(varianta.length() > 50)
-			throw new InputValidationFailedException("Lungimea variantei1 depaseste 50 de caractere!" );
+			throw new InputValidationFailedException("Varianta " + numarVarianta + " nu incepe cu '" + numarVarianta + ")'!");
+		if(varianta.length() > 100)
+			throw new InputValidationFailedException("Lungimea variantei " + numarVarianta + " depaseste 100 de caractere!" );
 	}
 	
 	public static void validateVariantaCorecta(int variantaCorecta) throws InputValidationFailedException{
@@ -62,5 +65,12 @@ public class InputValidation {
 		if(domeniu.length() > 30)
 			throw new InputValidationFailedException("Lungimea domeniului depaseste 30 de caractere!");
 		
+	}
+
+	public static void validateQuestion(Intrebare intrebare) throws InputValidationFailedException
+    {
+		InputValidation.validateEnunt(intrebare.getEnunt());
+		InputValidation.validateVarianteRaspuns(intrebare.getVarianteRaspuns());
+		InputValidation.validateDomeniu(intrebare.getDomeniu());
 	}
 }

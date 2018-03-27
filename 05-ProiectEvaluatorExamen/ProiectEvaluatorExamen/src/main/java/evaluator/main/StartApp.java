@@ -85,6 +85,9 @@ public class StartApp {
 		} catch (DuplicateIntrebareException e)
 		{
 			e.printStackTrace();
+		} catch (InputValidationFailedException e)
+		{
+			e.printStackTrace();
 		}
 	}
 

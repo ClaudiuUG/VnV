@@ -3,6 +3,7 @@ package evaluator.controller;
 import java.util.LinkedList;
 import java.util.List;
 
+import evaluator.exception.InputValidationFailedException;
 import evaluator.model.Intrebare;
 import evaluator.model.Statistica;
 import evaluator.model.Test;
@@ -19,8 +20,8 @@ public class AppController {
 		intrebariRepository = new IntrebariRepository(fileName);
 	}
 	
-	public Intrebare addNewIntrebare(Intrebare intrebare) throws DuplicateIntrebareException{
-		
+	public Intrebare addNewIntrebare(Intrebare intrebare) throws DuplicateIntrebareException, InputValidationFailedException
+	{
 		intrebariRepository.addIntrebare(intrebare);
 		return intrebare;
 	}
