@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /*
@@ -33,6 +34,7 @@ public class IntrebariRepositoryTest
         repository.removeAll();
     }
 
+    /// TC1_ECP
     @Test
     public void AdauagareIntrebareValida() throws DuplicateIntrebareException, InputValidationFailedException
     {
@@ -61,16 +63,17 @@ public class IntrebariRepositoryTest
         Assert.assertTrue(repository.exists(question));
     }
 
+    /// TC2_ECP
     @Test
-    public void AdaugareIntrebareEnuntVid() throws DuplicateIntrebareException
+    public void EnuntVid_IntrebareInvalida() throws DuplicateIntrebareException
     {
         Intrebare question = GetVaidQuestion();
         question.setEnunt("");
 
-        AssertInputValidationFailedAtRepoAdd(question);
+        AssertInputValidationFailsAtRepoAdd(question);
     }
 
-    private void AssertInputValidationFailedAtRepoAdd(Intrebare question) throws DuplicateIntrebareException
+    private void AssertInputValidationFailsAtRepoAdd(Intrebare question) throws DuplicateIntrebareException
     {
         boolean inputValidationFailed = false;
         try
@@ -84,8 +87,9 @@ public class IntrebariRepositoryTest
         Assert.assertTrue(inputValidationFailed);
     }
 
+    /// TC08_BVA
     @Test
-    public void RaspunsValidFormatDin3Caractere() throws DuplicateIntrebareException, InputValidationFailedException
+    public void RaspunsFormatDin3Caractere_IntrebareValida() throws DuplicateIntrebareException, InputValidationFailedException
     {
         Intrebare question = GetVaidQuestion();
         question.setVarianteRaspuns(Arrays.asList("1)3", "2)4", "3)a"));
@@ -95,12 +99,77 @@ public class IntrebariRepositoryTest
         AssertQuestionAddedToRepository(question);
     }
 
+    /// TC09_BVA
     @Test
-    public void RaspunsInvalidFormatDin2Caractere() throws DuplicateIntrebareException
+    public void RaspunsFormatDin2Caractere_IntrebareInvalida() throws DuplicateIntrebareException
     {
         Intrebare question = GetVaidQuestion();
         question.setVarianteRaspuns(Arrays.asList("1)", "2)", "3)"));
 
-        AssertInputValidationFailedAtRepoAdd(question);
+        AssertInputValidationFailsAtRepoAdd(question);
+    }
+
+    // TC4_ECP
+    @Test
+    public void PrimaLiteraEnuntMinuscula_IntrebareInvalida() throws DuplicateIntrebareException
+    {
+        Intrebare question = GetVaidQuestion();
+        question.setEnunt("de ce?");
+
+        AssertInputValidationFailsAtRepoAdd(question);
+    }
+
+    // TC5_ECP
+    @Test
+    public void OSinguraVariantaDeRaspund_IntrebareInvalida() throws DuplicateIntrebareException
+    {
+        Intrebare question = GetVaidQuestion();
+        List<String> varianteRaspuns = new LinkedList<>();
+        varianteRaspuns.add("1) D-aia");
+        question.setVarianteRaspuns(varianteRaspuns);
+
+        AssertInputValidationFailsAtRepoAdd(question);
+    }
+
+    // TC9_ECP
+    @Test
+    public void VariantaDeRaspunsFaraNumar_IntrebareInvalida() throws DuplicateIntrebareException
+    {
+        Intrebare question = GetVaidQuestion();
+        question.getVarianteRaspuns().set(1, "Da.");
+
+        AssertInputValidationFailsAtRepoAdd(question);
+    }
+
+    // TC10_BVA
+    @Test
+    public void DomeniulContineUnSingurCaracter_IntrebareInvalida() throws DuplicateIntrebareException
+    {
+        Intrebare question = GetVaidQuestion();
+        question.setDomeniu("A");
+
+        AssertInputValidationFailsAtRepoAdd(question);
+    }
+
+    // TC11_BVA
+    @Test
+    public void DomeniulContine30Caractere_IntrebareValida() throws DuplicateIntrebareException, InputValidationFailedException
+    {
+        Intrebare question = GetVaidQuestion();
+        question.setDomeniu("B12345678901234567890123456789");
+
+        repository.addIntrebare(question);
+        AssertQuestionAddedToRepository(question);
+    }
+
+
+    // TC12_BVA
+    @Test
+    public void DomeniulContine31Caractere_IntrebareInvalida() throws DuplicateIntrebareException, InputValidationFailedException
+    {
+        Intrebare question = GetVaidQuestion();
+        question.setDomeniu("B123456789012345678901234567890");
+
+        AssertInputValidationFailsAtRepoAdd(question);
     }
 }

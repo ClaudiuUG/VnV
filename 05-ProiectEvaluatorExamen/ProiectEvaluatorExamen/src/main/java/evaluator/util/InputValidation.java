@@ -9,9 +9,9 @@ import java.util.List;
 public class InputValidation {
 
 	public static void validateEnunt(String enunt) throws InputValidationFailedException{
-	
+        if(enunt == null)
+            throw new InputValidationFailedException("Enuntul este nul!");
 		enunt = enunt.trim();
-		
 		if(enunt.equals(""))
 			throw new InputValidationFailedException("Enuntul este vid!");
 		if(!Character.isUpperCase(enunt.charAt(0)))
@@ -36,9 +36,10 @@ public class InputValidation {
 	}
 
 	public static void validateVariantaRaspuns(String varianta, Integer numarVarianta) throws InputValidationFailedException{
-		
+
+	    if (varianta == null)
+            throw new InputValidationFailedException("Enuntul este nul!");
 		varianta = varianta.trim();
-		
 		if(varianta.equals(""))
 			throw new InputValidationFailedException("Varianta " + numarVarianta + " este vida!");
 		if(varianta.length() < 3)
@@ -55,13 +56,16 @@ public class InputValidation {
 	}
 	
 	public static void validateDomeniu(String domeniu) throws InputValidationFailedException{
-		
+
+        if(domeniu == null)
+            throw new InputValidationFailedException("Domeniul este null!");
 		domeniu = domeniu.trim();
-		
 		if(domeniu.equals(""))
 			throw new InputValidationFailedException("Domeniul este vid!");
 		if(!Character.isUpperCase(domeniu.charAt(0)))
 			throw new InputValidationFailedException("Prima litera din domeniu nu e majuscula!");
+		if(domeniu.length() < 2)
+            throw new InputValidationFailedException("Lungimea domeniului depaseste 30 de caractere!");
 		if(domeniu.length() > 30)
 			throw new InputValidationFailedException("Lungimea domeniului depaseste 30 de caractere!");
 		
