@@ -3,11 +3,12 @@ package evaluator.model;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Test  {
+public class GeneratedTest
+{
 
 	private List<Intrebare> intrebari;
 	
-	public Test() {
+	public GeneratedTest() {
 		intrebari = new LinkedList<Intrebare>(); 
 	}
 	

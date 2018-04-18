@@ -14,7 +14,8 @@ import evaluator.model.Statistica;
 
 import evaluator.controller.AppController;
 import evaluator.exception.NotAbleToCreateStatisticsException;
-import evaluator.model.Test;
+import evaluator.model.GeneratedTest;
+import evaluator.repository.IntrebariRepository;
 import evaluator.util.InputValidation;
 
 //functionalitati
@@ -29,15 +30,16 @@ public class StartApp {
 	public static void main(String[] args) throws IOException {
 		
 		BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
-		
-		AppController appController = new AppController(fileName);
+
+		IntrebariRepository repository = new IntrebariRepository(fileName);
+		AppController appController = new AppController(repository);
 		
 		boolean activ = true;
 		String optiune = null;
 		
 		while(activ){
 
-            appController.loadIntrebariFromFile(fileName);
+            appController.loadIntrebariFromFile();
 
 			System.out.println("");
 			System.out.println("1.Adauga intrebare");
@@ -136,7 +138,7 @@ public class StartApp {
     {
         try
         {
-            Test test = appController.createNewTest();
+            GeneratedTest test = appController.createNewTest();
             System.out.println(test);
         } catch (NotAbleToCreateTestException e)
         {
