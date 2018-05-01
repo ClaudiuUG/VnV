@@ -63,7 +63,7 @@ public class StartApp {
 					statistica = appController.getStatistica();
 					System.out.println(statistica);
 				} catch (NotAbleToCreateStatisticsException e) {
-					System.out.println();
+					System.out.println(e.getMessage());
 				}
 				
 				break;

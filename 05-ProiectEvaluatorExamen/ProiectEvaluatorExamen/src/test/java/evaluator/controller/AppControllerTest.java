@@ -1,65 +1,25 @@
 package evaluator.controller;
 
+import evaluator.exception.NotAbleToCreateStatisticsException;
 import evaluator.exception.NotAbleToCreateTestException;
-import evaluator.helpers.TestHelper;
+import evaluator.helpers.TestBase;
 import evaluator.model.GeneratedTest;
 import evaluator.model.Intrebare;
-import evaluator.repository.IntrebariRepository;
-import org.junit.After;
+import evaluator.model.Statistica;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
 
-public class AppControllerTest
+public class AppControllerTest extends TestBase
 {
-    TestHelper helper;
-    AppController controller;
-    IntrebariRepository repository;
-
-    @Before
-    public void setUp()
-    {
-        helper = new TestHelper();
-        repository = new IntrebariRepository(helper.QuestionPersistanceFileName);
-        controller = new AppController(repository);
-    }
-
-    @After
-    public void tearDown()
-    {
-        repository.removeAll();
-    }
-
     // WBT_1
     @Test
-    public void ExistaSuficientaIntrebariSiDomenii_TestGeneratCorect()
+    public void ExistaSuficienteIntrebariSiDomenii_TestGeneratCorect()
     {
         PopulateQuestionRepo(5);
 
         AssertTestCreation(true);
-    }
-
-    private void PopulateQuestionRepo(int numberOfQuestions)
-    {
-        for (int i=0; i < numberOfQuestions; ++i)
-        {
-            AddQuestionWithCustomDomain("Domeniu " + i);
-        }
-    }
-
-    private void AddQuestionWithCustomDomain(String domain)
-    {
-        Intrebare question = TestHelper.GetValidQuestion();
-        question.setDomeniu(domain);
-        try
-        {
-            repository.addIntrebare(question);
-        } catch (Exception e)
-        {
-            e.printStackTrace();
-        }
     }
 
     private void AssertTestCreation(boolean testShouldCreate)
@@ -121,5 +81,31 @@ public class AppControllerTest
         repository.setIntrebari(intrebari);
 
         AssertCreateNewTestThrowsException(NotAbleToCreateTestException.class);
+    }
+
+    @Test
+    public void GenerateStatistics_StatisticsCreated() throws NotAbleToCreateStatisticsException
+    {
+        int numberOfQuestions = 5;
+        PopulateQuestionRepo(numberOfQuestions);
+
+        Statistica statistica = controller.getStatistica();
+
+        AssertStatistics(statistica, numberOfQuestions);
+    }
+
+    @Test
+    public void EmptyQuestionRepository_GenerateStatistics_StatisticsNotCreated()
+    {
+        boolean exceptionWasThrown = false;
+        try
+        {
+            Statistica statistica = controller.getStatistica();
+        } catch (NotAbleToCreateStatisticsException e)
+        {
+            exceptionWasThrown = true;
+        }
+
+        Assert.assertTrue(exceptionWasThrown);
     }
 }

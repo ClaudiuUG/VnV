@@ -2,7 +2,7 @@ package evaluator.repository;
 
 import evaluator.exception.DuplicateIntrebareException;
 import evaluator.exception.InputValidationFailedException;
-import evaluator.helpers.TestHelper;
+import evaluator.helpers.TestBase;
 import evaluator.model.Intrebare;
 import org.junit.After;
 import org.junit.Assert;
@@ -17,15 +17,14 @@ import java.util.List;
 * Test class for black box testing the addition of the questions to the repository.
 * This was done for Lab2
  */
-public class IntrebariRepositoryTest
+public class IntrebariRepositoryTest extends TestBase
 {
-    TestHelper helper;
     IntrebariRepository repository;
 
     @Before
     public void setUp()
     {
-        repository = new IntrebariRepository(TestHelper.QuestionPersistanceFileName);
+        repository = new IntrebariRepository(QuestionPersistanceFileName);
     }
 
     @After
@@ -38,7 +37,7 @@ public class IntrebariRepositoryTest
     @Test
     public void AdauagareIntrebareValida() throws DuplicateIntrebareException, InputValidationFailedException
     {
-        Intrebare question = TestHelper.GetValidQuestion();
+        Intrebare question = GetValidQuestion();
 
         repository.addIntrebare(question);
 
@@ -54,7 +53,7 @@ public class IntrebariRepositoryTest
     @Test
     public void EnuntVid_IntrebareInvalida() throws DuplicateIntrebareException
     {
-        Intrebare question = TestHelper.GetValidQuestion();
+        Intrebare question = GetValidQuestion();
         question.setEnunt("");
 
         AssertInputValidationFailsAtRepoAdd(question);
@@ -78,7 +77,7 @@ public class IntrebariRepositoryTest
     @Test
     public void RaspunsFormatDin3Caractere_IntrebareValida() throws DuplicateIntrebareException, InputValidationFailedException
     {
-        Intrebare question = TestHelper.GetValidQuestion();
+        Intrebare question = GetValidQuestion();
         question.setVarianteRaspuns(Arrays.asList("1)3", "2)4", "3)a"));
 
         repository.addIntrebare(question);
@@ -90,7 +89,7 @@ public class IntrebariRepositoryTest
     @Test
     public void RaspunsFormatDin2Caractere_IntrebareInvalida() throws DuplicateIntrebareException
     {
-        Intrebare question = TestHelper.GetValidQuestion();
+        Intrebare question = GetValidQuestion();
         question.setVarianteRaspuns(Arrays.asList("1)", "2)", "3)"));
 
         AssertInputValidationFailsAtRepoAdd(question);
@@ -100,7 +99,7 @@ public class IntrebariRepositoryTest
     @Test
     public void PrimaLiteraEnuntMinuscula_IntrebareInvalida() throws DuplicateIntrebareException
     {
-        Intrebare question = TestHelper.GetValidQuestion();
+        Intrebare question = GetValidQuestion();
         question.setEnunt("de ce?");
 
         AssertInputValidationFailsAtRepoAdd(question);
@@ -110,7 +109,7 @@ public class IntrebariRepositoryTest
     @Test
     public void OSinguraVariantaDeRaspund_IntrebareInvalida() throws DuplicateIntrebareException
     {
-        Intrebare question = TestHelper.GetValidQuestion();
+        Intrebare question = GetValidQuestion();
         List<String> varianteRaspuns = new LinkedList<>();
         varianteRaspuns.add("1) D-aia");
         question.setVarianteRaspuns(varianteRaspuns);
@@ -122,7 +121,7 @@ public class IntrebariRepositoryTest
     @Test
     public void VariantaDeRaspunsFaraNumar_IntrebareInvalida() throws DuplicateIntrebareException
     {
-        Intrebare question = TestHelper.GetValidQuestion();
+        Intrebare question = GetValidQuestion();
         question.getVarianteRaspuns().set(1, "Da.");
 
         AssertInputValidationFailsAtRepoAdd(question);
@@ -132,7 +131,7 @@ public class IntrebariRepositoryTest
     @Test
     public void DomeniulContineUnSingurCaracter_IntrebareInvalida() throws DuplicateIntrebareException
     {
-        Intrebare question = TestHelper.GetValidQuestion();
+        Intrebare question = GetValidQuestion();
         question.setDomeniu("A");
 
         AssertInputValidationFailsAtRepoAdd(question);
@@ -142,7 +141,7 @@ public class IntrebariRepositoryTest
     @Test
     public void DomeniulContine30Caractere_IntrebareValida() throws DuplicateIntrebareException, InputValidationFailedException
     {
-        Intrebare question = TestHelper.GetValidQuestion();
+        Intrebare question = GetValidQuestion();
         question.setDomeniu("B12345678901234567890123456789");
 
         repository.addIntrebare(question);
@@ -154,7 +153,7 @@ public class IntrebariRepositoryTest
     @Test
     public void DomeniulContine31Caractere_IntrebareInvalida() throws DuplicateIntrebareException, InputValidationFailedException
     {
-        Intrebare question = TestHelper.GetValidQuestion();
+        Intrebare question = GetValidQuestion();
         question.setDomeniu("B123456789012345678901234567890");
 
         AssertInputValidationFailsAtRepoAdd(question);
