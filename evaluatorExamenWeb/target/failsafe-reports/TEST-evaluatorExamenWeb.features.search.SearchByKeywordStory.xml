@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="evaluatorExamenWeb.features.search.SearchByKeywordStory" time="13.615" tests="3" errors="0" skipped="1" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="evaluatorExamenWeb.features.search.SearchByKeywordStory" time="16.375" tests="3" errors="0" skipped="1" failures="0">
   <properties>
     <property name="idea.version" value="2017.3.5"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -61,7 +61,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="searching_by_keyword_banana_should_display_the_corresponding_article" classname="evaluatorExamenWeb.features.search.SearchByKeywordStory" time="7.138"/>
+  <testcase name="searching_by_keyword_banana_should_display_the_corresponding_article" classname="evaluatorExamenWeb.features.search.SearchByKeywordStory" time="7.563"/>
   <testcase name="searching_by_ambiguious_keyword_should_display_the_disambiguation_page" classname="evaluatorExamenWeb.features.search.SearchByKeywordStory" time="0">
     <skipped/>
     <system-out><![CDATA[Story name for search => TestTag{name='Search by keyword story', type='story'}
@@ -100,5 +100,5 @@ TEST PENDING: Searching by ambiguious keyword should display the disambiguation 
 ---------------------------------------------------------------------------------
 ]]></system-err>
   </testcase>
-  <testcase name="searching_by_keyword_apple_should_display_the_corresponding_article" classname="evaluatorExamenWeb.features.search.SearchByKeywordStory" time="3.004"/>
+  <testcase name="searching_by_keyword_apple_should_display_the_corresponding_article" classname="evaluatorExamenWeb.features.search.SearchByKeywordStory" time="5.537"/>
 </testsuite>

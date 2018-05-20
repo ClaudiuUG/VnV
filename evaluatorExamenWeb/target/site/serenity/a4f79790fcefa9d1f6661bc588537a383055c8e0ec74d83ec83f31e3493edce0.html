@@ -53,9 +53,9 @@
     <script class="code" type="text/javascript">$(document).ready(function () {
         var test_results_plot = $.jqplot('test_results_pie_chart', [
             [
-                ['Passing', 0.666667],
+                ['Passing', 0.875],
                 
-                ['Pending', 0.333333],
+                ['Pending', 0.125],
                 
                 ['Ignored/Skipped', 0],
                 
@@ -92,20 +92,20 @@
                 marginTop: '15px'
             },
             series: [
-                {label: '2 / 3 tests passed' },
-                {label: '1 / 3 tests pending'},
-                {label: '0 / 3 tests not executed'},
-                {label: '0 / 3 tests failed'},
-                {label: '0 / 3 errors'},
-                {label: '0 / 3 compromised tests'}
+                {label: '7 / 8 tests passed' },
+                {label: '1 / 8 tests pending'},
+                {label: '0 / 8 tests not executed'},
+                {label: '0 / 8 tests failed'},
+                {label: '0 / 8 errors'},
+                {label: '0 / 8 compromised tests'}
             ]
         });
 
         var weighted_test_results_plot = $.jqplot('weighted_test_results_pie_chart', [
             [
-                ['Passing', 0.666667],
+                ['Passing', 0.878788],
                 
-                ['Pending', 0.333333],
+                ['Pending', 0.121212],
                 
                 ['Ignored', 0],
                 
@@ -143,11 +143,11 @@
                 marginTop: '15px'
             },
             series: [
-                {label: '2 / 3 tests passed (0.666667% of all test steps)' },
-                {label: '1 / 3 tests pending'},
-                {label: '0 / 3 tests not executed'},
-                {label: '0 / 3 tests failed (0% of all test steps)'},
-                {label: '0 / 3 errors (0% of all test steps)'}
+                {label: '7 / 8 tests passed (0.878788% of all test steps)' },
+                {label: '1 / 8 tests pending'},
+                {label: '0 / 8 tests not executed'},
+                {label: '0 / 8 tests failed (0% of all test steps)'},
+                {label: '0 / 8 errors (0% of all test steps)'}
             ]
         });
 
@@ -219,7 +219,7 @@
             <a href="2a4631d87648e59c428d4cf0e9247f9d286e4679f436ca2ce872e931eb4dfd58.html"><i class="fa fa-comments-o"></i> Stories</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 08-05-2018 23:59</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 16-05-2018 13:53</span>
     <br style="clear:left"/>
 </div>
 <div class="clr"></div>
@@ -233,12 +233,12 @@
     <tr>
         <td width="375px" valign="top">
             <div class="test-count-summary">
-                <span class="test-count-title">3
+                <span class="test-count-title">8
                     test scenarios </span>
                 <div>
 
                     <span class="test-count"> |
-                        2
+                        7
                             <a href="a98f94fe103347f42440a3c88ae275d47d6c25ecade2f23222cfcd7b009d5017.html">passed</a>
                         
                     </span>
@@ -297,10 +297,10 @@
         <body>
         <tr>
             <td class="summary-leading-column">Automated</td>
-            <td>3</td>
-            <td>2 (67%)</td>
+            <td>8</td>
+            <td>7 (88%)</td>
             <td>0 (0%)</td>
-            <td>1 (33%)</td>
+            <td>1 (12%)</td>
             <td>0 (0%)</td>
         </tr>
         <tr>
@@ -313,15 +313,15 @@
         </tr>
         <tr>
             <td class="summary-leading-column">Total</td>
-            <td>3</td>
-            <td>2 (67%)</td>
+            <td>8</td>
+            <td>7 (88%)</td>
             <td>0 (0%)</td>
-            <td>1 (33%)</td>
+            <td>1 (12%)</td>
             <td>0 (0%)</td>
         </tr>
         <tr>
             <td class="summary-leading-column">Total Duration</td>
-                <td colspan="5">10 seconds</td>
+                <td colspan="5">44 seconds</td>
         </tr>
         </body>
     </table>
@@ -386,6 +386,51 @@
                         </table>
                     </td>
                 </tr>
+                <tr>
+                    <td class="bluetext tag-title">
+                        <span class="SUCCESS-text truncated-tag-title">
+                                <a href="2f3d9e297a3ba1f83e40a92e038e4bbce95a481e03672e4efb20fc4d53f11e45.html" title="Search Story">Search Story</a>
+                        </span>
+                    </td>
+                    <td width="220px" class="table-figure">
+
+
+                        <table>
+                            <tr>
+                                <td class="related-tag-percentage"><span title="5 out of 5 tests (19 steps) passing">100%</span></td>
+                                <td width="150px">
+                                    <a href="2f3d9e297a3ba1f83e40a92e038e4bbce95a481e03672e4efb20fc4d53f11e45.html">
+                                        <div class="pendingbar"
+                                             title="0 out of 5 tests (0 steps) pending"
+                                             style="width: 150px;">
+                                            <div class="ignoredbar"
+                                                 style="width: 150px;"
+                                                 title="0 out of 5 tests (0 steps) skipped or ignored">
+                                                <div class="compromisedbar"
+                                                     style="width: 150px;"
+                                                     title="0 out of 5 tests (0 steps) compromised">
+                                                    <div class="errorbar"
+                                                         style="width: 150px;"
+                                                         title="0 out of 5 tests (0 steps) broken">
+                                                        <div class="failingbar"
+                                                             style="width: 150px;"
+                                                             title="0 out of 5 tests (0 steps) failing">
+                                                            <div class="passingbar"
+                                                                 style="width: 150px;"
+                                                                 title="5 out of 5 tests (19 steps) passing">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td class="related-tag-count"><span class="result-test-count" title="5 tests">5</span></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
         </table>
                                 </div>
                             </td>
@@ -396,7 +441,7 @@
                     <table>
                         <tr>
                             <td colspan="2">
-                                <span class="caption">Test results weighted by test size in steps (average steps per test: 5) .</span>
+                                <span class="caption">Test results weighted by test size in steps (average steps per test: 4) .</span>
                                 <span class="togglePieChart" id="toggleWeightedPieChart"><a href="#">Show/Hide Pie
                                     Chart</a></span>
                             </td>
@@ -428,10 +473,10 @@
         <body>
         <tr>
             <td class="summary-leading-column">Automated</td>
-            <td>3</td>
-            <td>2 (67%)</td>
+            <td>8</td>
+            <td>7 (88%)</td>
             <td>0 (0%)</td>
-            <td>1 (33%)</td>
+            <td>1 (12%)</td>
             <td>0 (0%)</td>
         </tr>
         <tr>
@@ -444,15 +489,15 @@
         </tr>
         <tr>
             <td class="summary-leading-column">Total</td>
-            <td>3</td>
-            <td>2 (67%)</td>
+            <td>8</td>
+            <td>7 (88%)</td>
             <td>0 (0%)</td>
-            <td>1 (33%)</td>
+            <td>1 (12%)</td>
             <td>0 (0%)</td>
         </tr>
         <tr>
             <td class="summary-leading-column">Total Duration</td>
-                <td colspan="5">10 seconds</td>
+                <td colspan="5">44 seconds</td>
         </tr>
         </body>
     </table>
@@ -513,6 +558,51 @@
                                     </a>
                                 </td>
                                 <td class="related-tag-count"><span class="result-test-count" title="3 tests">3</span></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bluetext tag-title">
+                        <span class="SUCCESS-text truncated-tag-title">
+                                <a href="2f3d9e297a3ba1f83e40a92e038e4bbce95a481e03672e4efb20fc4d53f11e45.html" title="Search Story">Search Story</a>
+                        </span>
+                    </td>
+                    <td width="220px" class="table-figure">
+
+
+                        <table>
+                            <tr>
+                                <td class="related-tag-percentage"><span title="5 out of 5 tests (19 steps) passing">100%</span></td>
+                                <td width="150px">
+                                    <a href="2f3d9e297a3ba1f83e40a92e038e4bbce95a481e03672e4efb20fc4d53f11e45.html">
+                                        <div class="pendingbar"
+                                             title="0 out of 5 tests (0 steps) pending"
+                                             style="width: 150px;">
+                                            <div class="ignoredbar"
+                                                 style="width: 150px;"
+                                                 title="0 out of 5 tests (0 steps) skipped or ignored">
+                                                <div class="compromisedbar"
+                                                     style="width: 150px;"
+                                                     title="0 out of 5 tests (0 steps) compromised">
+                                                    <div class="errorbar"
+                                                         style="width: 150px;"
+                                                         title="0 out of 5 tests (0 steps) broken">
+                                                        <div class="failingbar"
+                                                             style="width: 150px;"
+                                                             title="0 out of 5 tests (0 steps) failing">
+                                                            <div class="passingbar"
+                                                                 style="width: 150px;"
+                                                                 title="5 out of 5 tests (19 steps) passing">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td class="related-tag-count"><span class="result-test-count" title="5 tests">5</span></td>
                             </tr>
                         </table>
                     </td>
@@ -555,6 +645,29 @@
                                 <td class="SUCCESS-text">
                                     <div class="ellipsis">
 
+                                        <a href="0e09f988383f70adce89520c906b82f9a4d835d9771ecd9e8b9e4dcf513050b7.html" class="ellipsis"
+                                           title="Searching by keyword apple should display the corresponding article ">
+                                            Searching by keyword apple should display the corresponding article
+                                                <span class="related-issue-title"></span>
+                                        </a>
+                                    </div>
+                                </td>
+
+                                <td class="SUCCESS-text">5</td>
+
+
+                                <td class="SUCCESS-text" data-sort="2018-05-16 13:19:05">13:19:05</td>
+
+                                <td class="SUCCESS-text">11.82</td>
+                            </tr>
+
+                            <tr class="test-SUCCESS">
+                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                    
+                                    <span style="display:none">SUCCESS</span></td>
+                                <td class="SUCCESS-text">
+                                    <div class="ellipsis">
+
                                         <a href="c8f1103147341f33a7f8204a2a3c56ee0ecc864f5ba32d82c6882289aca07231.html" class="ellipsis"
                                            title="Searching by keyword banana should display the corresponding article ">
                                             Searching by keyword banana should display the corresponding article
@@ -566,9 +679,9 @@
                                 <td class="SUCCESS-text">5</td>
 
 
-                                <td class="SUCCESS-text" data-sort="2018-05-08 23:59:40">23:59:40</td>
+                                <td class="SUCCESS-text" data-sort="2018-05-16 13:52:30">13:52:30</td>
 
-                                <td class="SUCCESS-text">7.1</td>
+                                <td class="SUCCESS-text">7.53</td>
                             </tr>
 
                             <tr class="test-PENDING">
@@ -589,9 +702,9 @@
                                 <td class="PENDING-text">0</td>
 
 
-                                <td class="PENDING-text" data-sort="2018-05-08 23:59:47">23:59:47</td>
+                                <td class="PENDING-text" data-sort="2018-05-16 13:52:38">13:52:38</td>
 
-                                <td class="PENDING-text">0.13</td>
+                                <td class="PENDING-text">0.12</td>
                             </tr>
 
                             <tr class="test-SUCCESS">
@@ -604,7 +717,7 @@
                                         <a href="f4ef1e2e4db931a7ea7a0d8b195d779e0c176e447cf430e270bb0cd16faec1f6.html" class="ellipsis"
                                            title="Searching by keyword apple should display the corresponding article ">
                                             Searching by keyword apple should display the corresponding article
-                                                <span class="related-issue-title">(#WIKI-1)</span>
+                                                <span class="related-issue-title"></span>
                                         </a>
                                     </div>
                                 </td>
@@ -612,9 +725,101 @@
                                 <td class="SUCCESS-text">5</td>
 
 
-                                <td class="SUCCESS-text" data-sort="2018-05-08 23:59:47">23:59:47</td>
+                                <td class="SUCCESS-text" data-sort="2018-05-16 13:52:38">13:52:38</td>
 
-                                <td class="SUCCESS-text">3</td>
+                                <td class="SUCCESS-text">5.54</td>
+                            </tr>
+
+                            <tr class="test-SUCCESS">
+                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                    
+                                    <span style="display:none">SUCCESS</span></td>
+                                <td class="SUCCESS-text">
+                                    <div class="ellipsis">
+
+                                        <a href="97f7c6442edd35a3ff6a86c9f87d41ae2d2ffc38eb5544fc2dce6dbde1b4c318.html" class="ellipsis"
+                                           title="Searching by keyword examen should display the corresponding article ">
+                                            Searching by keyword examen should display the corresponding article
+                                                <span class="related-issue-title"></span>
+                                        </a>
+                                    </div>
+                                </td>
+
+                                <td class="SUCCESS-text">5</td>
+
+
+                                <td class="SUCCESS-text" data-sort="2018-05-16 13:52:45">13:52:45</td>
+
+                                <td class="SUCCESS-text">10.32</td>
+                            </tr>
+
+                            <tr class="test-SUCCESS">
+                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                    
+                                    <span style="display:none">SUCCESS</span></td>
+                                <td class="SUCCESS-text">
+                                    <div class="ellipsis">
+
+                                        <a href="eebec6d809563c732eea6a7a0b2c42c9d84556754e8f41b8b2c8bbe6f0d8a682.html" class="ellipsis"
+                                           title="Logo click goes to homepage ">
+                                            Logo click goes to homepage
+                                                <span class="related-issue-title"></span>
+                                        </a>
+                                    </div>
+                                </td>
+
+                                <td class="SUCCESS-text">2</td>
+
+
+                                <td class="SUCCESS-text" data-sort="2018-05-16 13:52:56">13:52:56</td>
+
+                                <td class="SUCCESS-text">2.36</td>
+                            </tr>
+
+                            <tr class="test-SUCCESS">
+                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                    
+                                    <span style="display:none">SUCCESS</span></td>
+                                <td class="SUCCESS-text">
+                                    <div class="ellipsis">
+
+                                        <a href="f002f63a10b4a1d95f21b37f3897e7b96fe0c06a70e4e79019a94495dc56272a.html" class="ellipsis"
+                                           title="After search not on homepage ">
+                                            After search not on homepage
+                                                <span class="related-issue-title"></span>
+                                        </a>
+                                    </div>
+                                </td>
+
+                                <td class="SUCCESS-text">2</td>
+
+
+                                <td class="SUCCESS-text" data-sort="2018-05-16 13:52:58">13:52:58</td>
+
+                                <td class="SUCCESS-text">2.35</td>
+                            </tr>
+
+                            <tr class="test-SUCCESS">
+                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                    
+                                    <span style="display:none">SUCCESS</span></td>
+                                <td class="SUCCESS-text">
+                                    <div class="ellipsis">
+
+                                        <a href="760c46c970759bd5c799a48420ea6398e2af6089e0becf5b419e08d3e8ea4fa0.html" class="ellipsis"
+                                           title="Searching by keyword sesiune should not display exam article ">
+                                            Searching by keyword sesiune should not display exam article
+                                                <span class="related-issue-title"></span>
+                                        </a>
+                                    </div>
+                                </td>
+
+                                <td class="SUCCESS-text">5</td>
+
+
+                                <td class="SUCCESS-text" data-sort="2018-05-16 13:53:00">13:53:00</td>
+
+                                <td class="SUCCESS-text">3.61</td>
                             </tr>
                         </tbody>
                     </table>

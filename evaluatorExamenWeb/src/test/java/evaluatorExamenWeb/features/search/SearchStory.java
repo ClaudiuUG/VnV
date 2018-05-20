@@ -20,10 +20,31 @@ public class SearchStory
     public UserSteps anna;
 
     @Test
-    public void searching_by_keyword_apple_should_display_the_corresponding_article() {
+    public void searching_by_keyword_examen_should_display_the_corresponding_article() {
         anna.is_the_home_page();
-        anna.looks_for("apple");
-        // anna.should_see_definition("A common, round fruit produced by the tree Malus domestica, cultivated in temperate climates.");
+        anna.looks_for("examen");
+        anna.should_see_definition("Informații despre examenul în vederea obținerii certificatului de competență lingvistică la limba engleză pentru studenții anului III și studenții aflați în prelungire de studii");
+    }
+
+    @Test
+    public void searching_by_keyword_sesiune_should_not_display_exam_article() {
+        anna.is_the_home_page();
+        anna.looks_for("sesiune");
+        anna.should_not_see_definition("Informații despre examenul în vederea obținerii certificatului de competență lingvistică la limba engleză pentru studenții anului III și studenții aflați în prelungire de studii");
+    }
+
+    @Test
+    public void logoClick_goes_to_homepage()
+    {
+        anna.is_the_home_page();
+        anna.should_see_definition("Dr. Ioan Pop, Institutul de Tehnologie din Karlsruhe: Tehnologii cuantice: începutul unei noi revoluţii informatice");
+    }
+
+    @Test
+    public void after_search_not_on_homepage()
+    {
+        anna.is_the_home_page();
+        anna.should_not_see_definition("Informații despre examenul în vederea obținerii certificatului de competență lingvistică la limba engleză pentru studenții anului III și studenții aflați în prelungire de studii");
     }
 
 //    @Test

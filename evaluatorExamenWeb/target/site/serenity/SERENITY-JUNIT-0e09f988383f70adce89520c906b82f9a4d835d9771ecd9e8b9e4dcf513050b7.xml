@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="1" failures="0" name="evaluatorExamenWeb.features.search.SearchStory" skipped="0" tests="1" time="9.76" timestamp="2018-05-09T16:26:47.274+03:00[Europe/Athens]"><testcase classname="evaluatorExamenWeb.features.search.SearchStory" name="Searching by keyword apple should display the corresponding article"><error message="The following error occurred: Timed out after 2 seconds. Element not available&#10;Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:01:39.354Z'&#10;System info: host: 'CLAUDIU', ip: '192.168.100.11', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'&#10;Driver info: driver.version: unknown" type="org.openqa.selenium.ElementNotVisibleException">The following error occurred: Timed out after 2 seconds. Element not available
-Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:01:39.354Z'
-System info: host: 'CLAUDIU', ip: '192.168.100.11', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
-Driver info: driver.version: unknown</error><system-err>The following error occurred: Timed out after 2 seconds. Element not available
-Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:01:39.354Z'
-System info: host: 'CLAUDIU', ip: '192.168.100.11', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
-Driver info: driver.version: unknown&#13;
-evaluatorExamenWeb.pages.BileteDictionaryPage.enter_keywords(BileteDictionaryPage.java:22)&#13;
-evaluatorExamenWeb.steps.serenity.UserSteps.enters(UserSteps.java:17)&#13;
-evaluatorExamenWeb.steps.serenity.UserSteps.looks_for(UserSteps.java:37)&#13;
-evaluatorExamenWeb.features.search.SearchStory.searching_by_keyword_apple_should_display_the_corresponding_article(SearchStory.java:25)&#13;
-</system-err></testcase></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="evaluatorExamenWeb.features.search.SearchStory" skipped="0" tests="1" time="11.82" timestamp="2018-05-16T13:19:05.807+03:00[Europe/Athens]"><testcase classname="evaluatorExamenWeb.features.search.SearchStory" name="Searching by keyword apple should display the corresponding article"/></testsuite>

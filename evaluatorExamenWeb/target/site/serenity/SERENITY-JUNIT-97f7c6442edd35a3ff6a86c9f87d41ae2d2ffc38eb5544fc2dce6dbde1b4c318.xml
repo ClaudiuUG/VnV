@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="evaluatorExamenWeb.features.search.SearchStory" skipped="0" tests="1" time="21.17" timestamp="2018-05-16T13:56:53.312+03:00[Europe/Athens]"><testcase classname="evaluatorExamenWeb.features.search.SearchStory" name="Searching by keyword examen should display the corresponding article"/></testsuite>
